@@ -16,7 +16,7 @@ fn main() {
     if result < vec.len() && vec[result] == search {
         println!("Found {} at index {}", search, result);
     } else {
-        println!("{} was not found in the vector", search);
+        println!("{} was not found in the search vector", search);
     }
 }
 
@@ -26,12 +26,10 @@ fn binary_search(search_vector: &Vec<i32>, find: i32) -> usize {
 
     while lower_bound < upper_bound {
         let mid: usize = (lower_bound + upper_bound) / 2;
-        if search_vector[mid] == find {
-           return mid;
-        } else if search_vector[mid] < find {
-            lower_bound = mid + 1;
-        } else {
-            upper_bound = mid - 1;
+        match search_vector[mid] {
+            x if x == find => return mid,
+            x if x < find => lower_bound = mid  + 1,
+            _ => upper_bound = mid - 1,
         }
     }
     lower_bound
