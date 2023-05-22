@@ -1,5 +1,6 @@
 use std::io;
 use std::vec;
+use std::cmp::Ordering;
 
 fn main() {
     let vec = vec![1, 2, 3, 4, 7, 9, 13];
@@ -26,10 +27,10 @@ fn binary_search(search_vector: &Vec<i32>, find: i32) -> usize {
 
     while lower_bound < upper_bound {
         let mid: usize = (lower_bound + upper_bound) / 2;
-        match search_vector[mid] {
-            x if x == find => return mid,
-            x if x < find => lower_bound = mid  + 1,
-            _ => upper_bound = mid - 1,
+        match mid.cmp(&(find as usize)) {
+            Ordering::Less => lower_bound = mid + 1,
+            Ordering::Greater => upper_bound = mid - 1,
+            Ordering::Equal => return mid,
         }
     }
     lower_bound
