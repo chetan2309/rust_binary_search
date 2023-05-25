@@ -56,7 +56,7 @@ fn binary_search(search_vector: &Vec<i32>, find: i32) -> isize {
 
     while lower_bound <= upper_bound {
         let mid: usize = (lower_bound + upper_bound) / 2;
-        match mid.cmp(&(find as usize)) {
+        match search_vector[mid].cmp(&(find)) {
             Ordering::Less => lower_bound = mid + 1,
             Ordering::Greater => upper_bound = mid - 1,
             Ordering::Equal => return mid as isize,
