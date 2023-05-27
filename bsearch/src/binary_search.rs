@@ -9,7 +9,7 @@ impl BinarySearch {
     pub fn binary_search(search_vector: &Vec<i32>, find: i32) -> isize {
         let mut lower_bound = 0;
         let mut upper_bound = search_vector.len() - 1;
-    
+
         while lower_bound <= upper_bound {
             let mid: usize = (lower_bound + upper_bound) / 2;
             match search_vector[mid].cmp(&(find)) {

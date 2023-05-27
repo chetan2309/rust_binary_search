@@ -1,9 +1,9 @@
 use std::io;
-mod data_reader;
 mod binary_search;
+mod data_reader;
 
-use data_reader::FileReader;
 use binary_search::BinarySearch;
+use data_reader::FileReader;
 
 use crate::data_reader::DataReader;
 
