@@ -6,6 +6,7 @@ use binary_search::BinarySearch;
 use data_reader::FileReader;
 
 use crate::data_reader::DataReader;
+mod binary_search_tests;
 
 fn main() {
     let binary_data = match FileReader::new("binary_search_data.txt").read_data_from_file() {

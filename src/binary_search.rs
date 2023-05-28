@@ -2,10 +2,7 @@ use std::cmp::Ordering;
 
 pub struct BinarySearch;
 impl BinarySearch {
-    pub fn new() -> Self {
-        BinarySearch
-    }
-
+    
     pub fn binary_search(search_vector: &Vec<i32>, find: i32) -> isize {
         let mut lower_bound = 0;
         let mut upper_bound = search_vector.len() - 1;
@@ -19,11 +16,5 @@ impl BinarySearch {
             }
         }
         -1
-    }
-}
-
-impl Default for BinarySearch {
-    fn default() -> Self {
-        Self::new()
     }
 }
