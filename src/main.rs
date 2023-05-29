@@ -7,6 +7,7 @@ use data_reader::FileReader;
 
 use crate::data_reader::DataReader;
 mod binary_search_tests;
+mod main_test;
 
 fn main() {
     let binary_data = match FileReader::new("binary_search_data.txt").read_data_from_file() {
@@ -16,12 +17,9 @@ fn main() {
             return;
         }
     };
-    let vec = binary_data
-        .split(',')
-        .map(|s| s.trim().parse().expect("Error....."))
-        .collect();
+    let vec = convert_into_vector(&binary_data);
+    
     let mut search = String::new();
-
     io::stdin()
         .read_line(&mut search)
         .expect("Failed to read line");
@@ -38,4 +36,10 @@ fn main() {
     } else {
         println!("Found {} at index {}", search, result);
     }
+}
+
+fn convert_into_vector(data: &str) -> Vec<i32> {
+    data.split(',')
+        .map(|s| s.trim().parse().expect("Error....."))
+        .collect()
 }
