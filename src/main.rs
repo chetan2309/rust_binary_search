@@ -24,10 +24,7 @@ fn main() {
         .read_line(&mut search)
         .expect("Failed to read line");
 
-    let search = match search.trim().parse() {
-        Ok(num) => num,
-        Err(_) => 0,
-    };
+    let search = search.trim().parse().unwrap_or(0);
 
     let result = BinarySearch::binary_search(&vec, search);
     println!("Result: {}", result);
